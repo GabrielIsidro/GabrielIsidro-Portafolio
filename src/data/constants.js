@@ -12,7 +12,7 @@ export const PROJECTS = [
         title: "Consultorio Dr. Amado - Gestión de Turnos",
         category: "Proyecto Académico",
         description: "Sistema de administración de citas médicas diseñado para manejar la concurrencia, validación de horarios y disponibilidad de agendas en un entorno clínico.",
-        techStack: ["Java", "Ingeniería de Software"],
+        techStack: ["Java", "JavaFX"],
         githubUrl: "https://github.com/tu-usuario/consultorio",
     },
     {
@@ -20,7 +20,7 @@ export const PROJECTS = [
         title: "API REST de Envíos y Logística",
         category: "Proyecto Académico",
         description: "Interfaz de programación de aplicaciones estructurada bajo los principios de la programación orientada a objetos para el cálculo y gestión de rutas de envío.",
-        techStack: ["Java", "POO", "REST"],
+        techStack: ["Java", "JavaFX", "MySQL"],
         githubUrl: "https://github.com/tu-usuario/logistica",
     }
 ];

@@ -1,9 +1,15 @@
+import { motion } from 'framer-motion';
+
 export default function ProjectCard({ project }) {
     const isPersonal = project.category === "Proyecto Personal";
 
     return (
-        // Fondo de tarjeta y borde que cambia al color de acento al pasar el mouse
-        <div className="bg-tarjeta border border-tarjeta rounded-xl p-6 hover:border-acento transition-colors duration-300 flex flex-col h-full">
+        // Transformamos el div en motion.div y le agregamos whileHover
+        <motion.div
+            whileHover={{ y: -8, scale: 1.02 }}
+            transition={{ type: "spring", stiffness: 300 }}
+            className="bg-tarjeta border border-tarjeta rounded-xl p-6 hover:border-acento hover:shadow-[0_0_30px_rgba(56,189,248,0.15)] transition-colors duration-300 flex flex-col h-full"
+        >
             <div className="mb-4">
                 <span className={`text-xs font-mono font-bold px-2 py-1 rounded-md uppercase tracking-wide ${isPersonal ? 'bg-acento/20 text-acento' : 'bg-purple-500/20 text-purple-400'}`}>
                     {project.category}
@@ -20,7 +26,6 @@ export default function ProjectCard({ project }) {
 
             <div className="flex flex-wrap gap-2 mb-6">
                 {project.techStack.map((tech, index) => (
-                    // Tecnologías con tipografía de código
                     <span key={index} className="text-sm font-mono text-gray-300 bg-fondo px-3 py-1 rounded-full border border-gray-700">
                         {tech}
                     </span>
@@ -34,11 +39,10 @@ export default function ProjectCard({ project }) {
                 className="inline-flex items-center gap-2 text-acento hover:opacity-80 font-heading font-medium transition-opacity mt-auto"
             >
                 Ver en GitHub
-                {/* Ícono de Google para enlace externo */}
                 <span className="material-symbols-outlined text-base">
                     open_in_new
                 </span>
             </a>
-        </div>
+        </motion.div>
     );
 }
