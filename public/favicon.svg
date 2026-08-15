@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+  <!-- Fondo redondeado con tu color base -->
+  <rect width="100" height="100" rx="20" fill="#0F172A"/>
+  
+  <!-- Iniciales GIG ajustadas al centro -->
+  <text 
+    x="50%" 
+    y="50%" 
+    font-family="monospace" 
+    font-size="38" 
+    font-weight="bold" 
+    fill="#38BDF8" 
+    text-anchor="middle" 
+    dominant-baseline="central"
+  >
+    GIG
+  </text>
+</svg>

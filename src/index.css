@@ -1,0 +1,28 @@
+@import "tailwindcss";
+
+@theme {
+    /* 1. PALETA DE 3 COLORES ESTRICTA */
+    --color-fondo: #0F172A;
+    /* Azul Medianoche muy oscuro (Fondo principal) */
+    --color-tarjeta: #1E293B;
+    /* Azul Grisáceo (Para diferenciar secciones y tarjetas) */
+    --color-acento: #38BDF8;
+    /* Azul Cielo / Cian (Para botones, íconos y resaltados) */
+    --color-texto: #F8FAFC;
+    /* Blanco perla (Para que el texto sea legible) */
+
+    /* 2. LAS 3 TIPOGRAFÍAS */
+    --font-heading: 'Poppins', sans-serif;
+    --font-body: 'Inter', sans-serif;
+    --font-mono: 'JetBrains Mono', monospace;
+}
+
+body {
+    background-color: var(--color-fondo);
+    color: var(--color-texto);
+}
+
+/* Configuraciones extra para que la página sea suave */
+html {
+    scroll-behavior: smooth;
+}
