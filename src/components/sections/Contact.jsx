@@ -1,27 +1,29 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import MagneticButton from '../ui/MagneticButton';
+import { useForm, ValidationError } from '@formspree/react';
 
 export default function Contact() {
     const [formData, setFormData] = useState({ name: '', email: '', message: '' });
     const [isSubmitted, setIsSubmitted] = useState(false);
+    const [state, handleSubmit] = useForm('xvkpnyel');
 
     const handleChange = (e) => {
         setFormData({ ...formData, [e.target.name]: e.target.value });
     };
 
-    const handleSubmit = (e) => {
-        e.preventDefault();
-        // Aquí iría la lógica de envío real (ej. EmailJS, Formspree, etc.)
-        // Simulamos un envío exitoso:
-        setIsSubmitted(true);
-        setFormData({ name: '', email: '', message: '' });
-
-        // Ocultar el mensaje después de 5 segundos
-        setTimeout(() => {
-            setIsSubmitted(false);
-        }, 5000);
-    };
+    useEffect(() => {
+        if (state.succeeded) {
+            setIsSubmitted(true);
+            setFormData({ name: '', email: '', message: '' });
+            
+            const timer = setTimeout(() => {
+                setIsSubmitted(false);
+            }, 5000);
+            
+            return () => clearTimeout(timer);
+        }
+    }, [state.succeeded]);
 
     return (
         <section id="contacto" className="py-20 px-6">
@@ -30,7 +32,7 @@ export default function Contact() {
                     Contacto
                 </h2>
                 <p className="text-gray-400 font-body mb-10 text-center md:text-left">
-                    ¿Tienes un proyecto en mente o quieres saludar? Envíame un mensaje.
+                    ¿Tienes un proyecto en mente? Envíame un mensaje.
                 </p>
 
                 <div className="bg-tarjeta rounded-2xl p-8 border border-gray-800 shadow-xl relative overflow-hidden">
@@ -85,6 +87,7 @@ export default function Contact() {
                                         className="bg-fondo border border-gray-700 rounded-lg px-4 py-3 text-texto font-body focus:outline-none focus:border-acento focus:ring-1 focus:ring-acento transition-all"
                                         placeholder="tu@email.com"
                                     />
+                                    <ValidationError field="email" errors={state.errors} className="text-red-500 text-sm mt-1" />
                                 </div>
                             </div>
 
@@ -102,18 +105,22 @@ export default function Contact() {
                                     className="bg-fondo border border-gray-700 rounded-lg px-4 py-3 text-texto font-body focus:outline-none focus:border-acento focus:ring-1 focus:ring-acento transition-all resize-none"
                                     placeholder="¿En qué puedo ayudarte?"
                                 ></textarea>
+                                <ValidationError field="message" errors={state.errors} className="text-red-500 text-sm mt-1" />
                             </div>
 
                             <div className="self-end mt-4">
                                 <MagneticButton>
                                     <button
                                         type="submit"
-                                        className="flex items-center gap-2 px-8 py-3 text-lg font-heading font-bold text-fondo bg-acento rounded-lg hover:shadow-[0_0_20px_rgba(56,189,248,0.6)] hover:-translate-y-1 transition-all duration-300"
+                                        disabled={state.submitting}
+                                        className="flex items-center gap-2 px-8 py-3 text-lg font-heading font-bold text-fondo bg-acento rounded-lg hover:shadow-[0_0_20px_rgba(56,189,248,0.6)] hover:-translate-y-1 transition-all duration-300 disabled:opacity-70 disabled:cursor-not-allowed disabled:hover:translate-y-0 disabled:hover:shadow-none"
                                     >
-                                        Enviar
-                                        <span className="material-symbols-outlined text-base">
-                                            send
-                                        </span>
+                                        {state.submitting ? 'Enviando...' : 'Enviar'}
+                                        {!state.submitting && (
+                                            <span className="material-symbols-outlined text-base">
+                                                send
+                                            </span>
+                                        )}
                                     </button>
                                 </MagneticButton>
                             </div>
