@@ -16,23 +16,25 @@ export default function Footer() {
                         href="https://github.com/GabrielIsidro"
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="hover:text-acento transition-colors text-sm font-heading flex items-center gap-1"
+                        className="hover:text-acento hover:scale-110 transition-all duration-300 text-sm font-heading flex items-center gap-2"
                     >
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/github/github-original.svg" alt="GitHub" className="w-5 h-5 invert opacity-70 hover:opacity-100" />
                         GitHub
                     </a>
                     <a
                         href="https://www.linkedin.com/in/gabriel-isidro-garcia-5b8478287/"
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="hover:text-acento transition-colors text-sm font-heading flex items-center gap-1"
+                        className="hover:text-acento hover:scale-110 transition-all duration-300 text-sm font-heading flex items-center gap-2"
                     >
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/linkedin/linkedin-original.svg" alt="LinkedIn" className="w-5 h-5 opacity-70 hover:opacity-100" />
                         LinkedIn
                     </a>
                     <a
-                        href="mailto:gabrielisidro8@gmail.com"
-                        className="hover:text-acento transition-colors text-sm font-heading flex items-center gap-1"
+                        href="#contacto"
+                        className="hover:text-acento hover:scale-110 transition-all duration-300 text-sm font-heading flex items-center gap-2"
                     >
-                        <span className="material-symbols-outlined text-sm">mail</span>
+                        <span className="material-symbols-outlined text-xl opacity-70 hover:opacity-100">mail</span>
                         Contacto
                     </a>
                 </div>

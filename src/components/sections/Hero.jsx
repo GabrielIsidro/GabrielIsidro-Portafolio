@@ -1,17 +1,15 @@
 import { motion } from 'framer-motion';
+import Typewriter from 'typewriter-effect';
+import MagneticButton from '../ui/MagneticButton';
+import ParticlesBackground from '../ui/ParticlesBackground';
 
 export default function Hero() {
     return (
-        // Agregamos relative y overflow-hidden para contener el fondo
-        <section className="min-h-screen flex items-center justify-center px-6 relative overflow-hidden pt-20 pb-10">
-
-            {/* EFECTO DE FONDO: Cuadrícula técnica sutil */}
+        <section id="inicio" className="min-h-screen flex items-center justify-center px-6 relative overflow-hidden pt-20 pb-10">
+            <ParticlesBackground />
             <div className="absolute inset-0 bg-[linear-gradient(to_right,#1E293B_1px,transparent_1px),linear-gradient(to_bottom,#1E293B_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_50%,#000_70%,transparent_100%)] opacity-30 -z-10"></div>
 
-            {/* Cambiamos a un layout de 2 columnas: flex-col-reverse (móvil) y md:flex-row (PC) */}
             <div className="max-w-6xl mx-auto w-full flex flex-col-reverse md:flex-row items-center justify-between gap-12 mt-10 md:mt-0">
-
-                {/* COLUMNA IZQUIERDA: Texto y Botones */}
                 <div className="flex-1 text-center md:text-left">
                     <div className="inline-block px-3 py-1 mb-6 text-sm font-mono font-semibold text-acento bg-acento/10 rounded-full border border-acento/20">
                         Disponible para nuevos desafíos
@@ -21,28 +19,65 @@ export default function Hero() {
                         Hola, soy <span className="text-acento drop-shadow-[0_0_15px_rgba(56,189,248,0.4)]">Gabriel Isidro Garcia</span>.
                     </h1>
 
-                    <h2 className="text-2xl md:text-3xl text-gray-400 font-heading font-medium mb-6">
-                        Desarrollador Full-Stack | Analista en Informática
-                    </h2>
+                    <div className="text-2xl md:text-3xl text-gray-400 font-heading font-medium mb-6 h-10">
+                        <Typewriter
+                            options={{
+                                strings: [
+                                    'Desarrollador Full-Stack',
+                                    'Analista en Informática'
+                                ],
+                                autoStart: true,
+                                loop: true,
+                                deleteSpeed: 50,
+                                delay: 80,
+                            }}
+                        />
+                    </div>
 
                     <p className="text-lg text-gray-300 font-body mb-10 leading-relaxed max-w-xl mx-auto md:mx-0">
                         Me especializo en construir soluciones de software integrales, desde el diseño de bases de datos sólidas hasta interfaces web dinámicas. Enfocado en aplicar buenas prácticas de ingeniería para resolver problemas del mundo real.
                     </p>
 
                     <div className="flex flex-col sm:flex-row justify-center md:justify-start gap-4">
+                        <MagneticButton>
+                            <a
+                                href="#proyectos"
+                                className="inline-block px-8 py-3 text-lg font-heading font-bold text-fondo bg-acento rounded-lg hover:shadow-[0_0_20px_rgba(56,189,248,0.6)] hover:-translate-y-1 transition-all duration-300"
+                            >
+                                Ver Proyectos
+                            </a>
+                        </MagneticButton>
+                        <MagneticButton>
+                            <a
+                                href="/cv.pdf"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="inline-block px-8 py-3 text-lg font-heading font-bold text-texto bg-tarjeta border border-gray-600 rounded-lg hover:border-acento hover:text-acento transition-colors duration-300"
+                            >
+                                Descargar CV
+                            </a>
+                        </MagneticButton>
+                    </div>
+
+                    {/* Redes Sociales en Hero */}
+                    <div className="flex justify-center md:justify-start gap-6 mt-8">
                         <a
-                            href="#proyectos"
-                            className="px-8 py-3 text-lg font-heading font-bold text-fondo bg-acento rounded-lg hover:shadow-[0_0_20px_rgba(56,189,248,0.6)] hover:-translate-y-1 transition-all duration-300"
-                        >
-                            Ver Proyectos
-                        </a>
-                        <a
-                            href="/cv.pdf"
+                            href="https://github.com/GabrielIsidro"
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="px-8 py-3 text-lg font-heading font-bold text-texto bg-tarjeta border border-gray-600 rounded-lg hover:border-acento hover:text-acento transition-colors duration-300"
+                            className="text-gray-400 hover:text-acento hover:scale-110 transition-all duration-300"
+                            title="GitHub"
                         >
-                            Descargar CV
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/github/github-original.svg" alt="GitHub" className="w-8 h-8 invert opacity-70 hover:opacity-100 transition-opacity" />
+                        </a>
+                        <a
+                            href="https://www.linkedin.com/in/gabriel-isidro-garcia-5b8478287/"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="text-gray-400 hover:text-acento hover:scale-110 transition-all duration-300"
+                            title="LinkedIn"
+                        >
+                            <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/linkedin/linkedin-original.svg" alt="LinkedIn" className="w-8 h-8 opacity-70 hover:opacity-100 transition-opacity" />
                         </a>
                     </div>
                 </div>

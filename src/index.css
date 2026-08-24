@@ -25,4 +25,9 @@ body {
 /* Configuraciones extra para que la página sea suave */
 html {
     scroll-behavior: smooth;
+    cursor: none !important;
+}
+
+a, button, [role="button"], input, select, textarea {
+    cursor: none !important;
 }
