@@ -22,5 +22,13 @@ export const PROJECTS = [
         description: "Interfaz de programación de aplicaciones estructurada bajo los principios de la programación orientada a objetos para el cálculo y gestión de rutas de envío.",
         techStack: ["Java", "JavaFX", "MySQL"],
         githubUrl: "https://github.com/GabrielIsidro/api-envios-logistica",
-    }
+    },
+    {
+        id: 4,
+        title: "Aplicación de control de stock",
+        category: "Proyecto Académico",
+        description: "Aplicación de escritorio para la gestión integral de inventarios desarrollada bajo el patrón MVC. Incluye una API REST en segundo plano para integrar ventas externas en tiempo real y asegurar la consistencia del stock.",
+        techStack: ["Python", "Tkinter", "Flask", "MySQL"],
+        githubUrl: "https://github.com/GabrielIsidro/control-stock-inventario",
+    },
 ];
