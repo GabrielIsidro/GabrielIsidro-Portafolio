@@ -10,7 +10,7 @@ function ParticlesContent() {
                 value: "transparent",
             },
         },
-        fpsLimit: 120,
+        fpsLimit: 60,
         interactivity: {
             events: {
                 onHover: {
@@ -50,7 +50,7 @@ function ParticlesContent() {
                 density: {
                     enable: true,
                 },
-                value: 60,
+                value: 40,
             },
             opacity: {
                 value: 0.3,

@@ -11,9 +11,6 @@ export default function Hero() {
 
             <div className="max-w-6xl mx-auto w-full flex flex-col-reverse md:flex-row items-center justify-between gap-12 mt-10 md:mt-0">
                 <div className="flex-1 text-center md:text-left">
-                    <div className="inline-block px-3 py-1 mb-6 text-sm font-mono font-semibold text-acento bg-acento/10 rounded-full border border-acento/20">
-                        Disponible para nuevos desafíos
-                    </div>
 
                     <h1 className="text-5xl md:text-7xl font-heading font-bold tracking-tight mb-4 text-texto">
                         Hola, soy <span className="text-acento drop-shadow-[0_0_15px_rgba(56,189,248,0.4)]">Gabriel Isidro Garcia</span>.
@@ -97,8 +94,9 @@ export default function Hero() {
                         <div className="relative w-full h-full rounded-full border-2 border-acento/30 bg-tarjeta flex items-center justify-center overflow-hidden shadow-2xl z-10">
 
                             <img
-                                src="/perfil.jpg"
+                                src="/perfil1.jpeg"
                                 alt="Gabriel Isidro Garcia"
+                                fetchPriority="high"
                                 className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-500"
                             />
                         </div>

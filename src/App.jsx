@@ -1,13 +1,15 @@
-import { useEffect } from 'react';
+import { useEffect, Suspense, lazy } from 'react';
 import Navbar from './components/layout/Navbar';
 import Hero from './components/sections/Hero';
-import Projects from './components/sections/Projects';
-import TechStack from './components/sections/TechStack';
-import About from './components/sections/About';
-import Contact from './components/sections/Contact';
 import Footer from './components/sections/Footer';
-import Reveal from './components/ui/Reveal';
 import CustomCursor from './components/ui/CustomCursor';
+import Reveal from './components/ui/Reveal';
+
+// Lazy load below-the-fold sections
+const Projects = lazy(() => import('./components/sections/Projects'));
+const TechStack = lazy(() => import('./components/sections/TechStack'));
+const About = lazy(() => import('./components/sections/About'));
+const Contact = lazy(() => import('./components/sections/Contact'));
 
 function App() {
   useEffect(() => {
@@ -20,10 +22,12 @@ function App() {
       <CustomCursor />
       <Navbar />
       <Hero />
-      <Reveal><Projects /></Reveal>
-      <Reveal><TechStack /></Reveal>
-      <Reveal><About /></Reveal>
-      <Reveal><Contact /></Reveal>
+      <Suspense fallback={<div className="min-h-screen flex items-center justify-center">Cargando...</div>}>
+        <Reveal><Projects /></Reveal>
+        <Reveal><TechStack /></Reveal>
+        <Reveal><About /></Reveal>
+        <Reveal><Contact /></Reveal>
+      </Suspense>
       <Footer />
     </main>
   );
